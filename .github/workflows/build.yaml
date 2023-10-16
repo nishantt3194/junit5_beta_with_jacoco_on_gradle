@@ -27,6 +27,10 @@ jobs:
         java-version: '17'  
         distribution: 'adopt'
 
+    - name: Set executable permissions for Gradle wrapper
+      run: |
+        chmod +x /home/runner/.gradle/wrapper/dists/gradle-3.0-bin/2z3tfybitalx2py5dr8rf2mti/gradle-3.0/bin/gradle
+    
     - name: Build Docker image
       run: |
         ./gradlew bootBuildImage --imageName=configurator-app:latest
